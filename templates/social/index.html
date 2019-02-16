@@ -5,6 +5,12 @@
 {% block content %}
 social's index
 {% for post in posts %}
-    <p><a href="{% url 'social:detail' post.id %}">{{post.title}}</a></p>
+    {% if post.approved %}
+    <p><a href="{% url 'engineer:detail' post.id %}">공지 : {{post.title}}</a></p>
+    {% else %}
 {% endfor %}
-{% endblock %}
+{% for post in posts %}
+    {% if post.approved %}
+    {% else %}
+    <p><a href="{% url 'engineer:detail' post.id %}">{{post.title}}</a></p>
+{% endfor %}
