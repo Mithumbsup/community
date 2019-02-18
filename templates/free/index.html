@@ -4,7 +4,17 @@
 
 {% block content %}
 free's index
+<a href="{% url 'free:new'%}">게시글 올리기</a>
 {% for post in posts %}
+    {% if post.approved %}
+    <p><a href="{% url 'free:detail' post.id %}">공지 : {{post.title}}</a></p>
+    {%else%}
+    {% endif %}
+{% endfor %}
+{% for post in posts %}
+    {% if post.approved %}
+    {%else%}
     <p><a href="{% url 'free:detail' post.id %}">{{post.title}}</a></p>
+    {% endif %}
 {% endfor %}
 {% endblock %}

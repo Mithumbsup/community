@@ -4,4 +4,4 @@ from .models import TeachPost
 class TeachPostForm(forms.ModelForm):
     class Meta:
         model = TeachPost
-        fields = ('title', 'content',)
+        fields = ('title', 'content','approved',)

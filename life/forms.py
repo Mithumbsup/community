@@ -4,4 +4,4 @@ from .models import LifePost
 class LifePostForm(forms.ModelForm):
     class Meta:
         model = LifePost
-        fields = ('title', 'content',)
+        fields = ('title', 'content','approved',)

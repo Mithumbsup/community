@@ -4,7 +4,17 @@
 
 {% block content %}
 social's index
+<a href="{% url 'social:new'%}">게시글 올리기</a>
 {% for post in posts %}
+    {% if post.approve %}
+    <p><a href="{% url 'social:detail' post.id %}">공지 : {{post.title}}</a></p>
+    {% else%}
+    {% endif %}
+{% endfor %}
+{% for post in posts %}
+    {% if post.approve %}
+    {% else%}
     <p><a href="{% url 'social:detail' post.id %}">{{post.title}}</a></p>
+    {% endif %}
 {% endfor %}
 {% endblock %}

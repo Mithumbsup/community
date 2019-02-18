@@ -1,10 +1,43 @@
+<html>
 {% extends 'base.html' %}
 
 {% block title %}agriculture의 index{% endblock %} <!--얘는 그 head 에 쓰는 타이틀이에요-->
 
 {% block content %}
+<br>
 agriculture's index
-{% for post in posts %}
-    <p><a href="{% url 'agriculture:detail' post.id %}">{{post.title}}</a></p>
-{% endfor %}
+<br>
+<a href="{% url 'agriculture:new'%}">게시글 올리기</a>
+
+<table>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>내용</th>
+            <th>작성자</th>
+        </tr> 
+        <tr>
+            <td>
+                {% for post in posts %}
+                    {% if post.approved %}
+                    <p><a href="{% url 'agriculture:detail' post.id %}"> 공지 : {{post.title}}</a></p>
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
+                {% for post in posts %}
+                    {% if post.approved %}
+                    {% else %}
+                    <p><a href="{% url 'agriculture:detail' post.id %}">{{post.title}}</a></p>
+                    {% endif %}
+                {% endfor %} 
+            </td>
+            <td>{{posts.content}}</td>
+            <td>{{posts.created_date}}</td>
+            <td>{{posts.User}}</td>
+        </tr>
+</table>
+
+
+
 {% endblock %}
+</html>

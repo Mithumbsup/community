@@ -4,7 +4,18 @@
 
 {% block content %}
 life's index
+<a href="{% url 'life:new'%}">게시글 올리기</a>
 {% for post in posts %}
+    {% if post.approved %}
+    <p><a href="{% url 'agriculture:detail' post.id %}">공지 : {{post.title}}</a></p>
+    {%else%}
+    {%endif%}
+{% endfor %}
+{% for post in posts %}
+    {% if post.approved %}
+    
+    {%else%}
     <p><a href="{% url 'agriculture:detail' post.id %}">{{post.title}}</a></p>
+    {%endif%}
 {% endfor %}
 {% endblock %}

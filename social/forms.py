@@ -4,4 +4,4 @@ from .models import SocialPost
 class SocialPostForm(forms.ModelForm):
     class Meta:
         model = SocialPost
-        fields = ('title', 'content',)
+        fields = ('title', 'content','approved',)

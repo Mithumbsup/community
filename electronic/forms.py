@@ -4,4 +4,4 @@ from .models import ElectronicPost
 class ElectronicPostForm(forms.ModelForm):
     class Meta:
         model = ElectronicPost
-        fields = ('title', 'content',)
+        fields = ('title', 'content','approved',)
