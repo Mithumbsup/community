@@ -4,9 +4,26 @@
 
 {% block content %}
     <p>teach의 detail</p>
-    <a href="{% url 'teach:edit' post.id %}">수정하기</a>
-    <a href="{% url 'teach:delete' post.id %}">삭제하기</a>
+   
+    
     <a href="{% url 'teach:index' %}">목록으로</a>
-    {{post.title}}
-    {{post.content}}
+    <table>
+            <tr>
+                <th>Title</th>
+                <th>Text</th>
+                <th>created_date</th>
+                <th>detail</th>
+            </tr> 
+            <tr>
+                <td>{{post.title}}</td>
+                <td>{{post.content}}</td>
+                <td>{{post.created_date}}</td>
+                <td>
+                    <ul>
+                        <li><a href="{% url 'teach:edit' post.id %}">수정하기</a></li>
+                        <li><a href="{% url 'teach:delete' post.id %}">삭제하기</a></li>
+                    </ul>
+                </td>
+            </tr>
+    </table>
 {% endblock %}
